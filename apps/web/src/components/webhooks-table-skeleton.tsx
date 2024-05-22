@@ -24,7 +24,7 @@ export default function WebhooksTableSkeleton() {
             </TableCell>
 
             <TableCell>
-              <Skeleton className='h-4 w-[80px]' />
+              <Skeleton className='h-4 w-[140px]' />
             </TableCell>
           </TableRow>
         );

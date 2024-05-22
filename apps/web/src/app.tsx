@@ -46,7 +46,7 @@ export default function App() {
                 <TableHead className='w-[140px]'>Event Type</TableHead>
                 <TableHead className='w-[140px]'>Last Triggered At</TableHead>
                 <TableHead className='w-[140px]'>Created At</TableHead>
-                <TableHead className='w-[80px]'>Actions</TableHead>
+                <TableHead className='w-[140px]'>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

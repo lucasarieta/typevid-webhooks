@@ -18,4 +18,8 @@ export class WebhookService {
   async update(id: string, payload: UpdateWebhookDto) {
     return await this.webhookRepository.update(id, payload);
   }
+
+  async delete(id: string) {
+    return await this.webhookRepository.delete(id);
+  }
 }

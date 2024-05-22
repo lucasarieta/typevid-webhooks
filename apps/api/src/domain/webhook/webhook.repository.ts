@@ -29,4 +29,15 @@ export class WebhookRepository {
       data: payload,
     });
   }
+
+  async delete(id: string) {
+    return await this.prismaService.webhook.update({
+      where: {
+        id: id,
+      },
+      data: {
+        isDeleted: true,
+      },
+    });
+  }
 }
