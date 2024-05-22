@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateCustomerDto } from './dto/create-customer.dto';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { CreateWebhookDto } from './dto/create-webhook.dto';
+import { UpdateWebhookDto } from './dto/update-webhook.dto';
 import { WebhookService } from './webhook.service';
 
 @Controller('webhook')
@@ -12,7 +13,12 @@ export class WebhookController {
   }
 
   @Post()
-  async create(@Body() payload: CreateCustomerDto) {
+  async create(@Body() payload: CreateWebhookDto) {
     return await this.webhookService.create(payload);
+  }
+
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() payload: UpdateWebhookDto) {
+    return await this.webhookService.update(id, payload);
   }
 }

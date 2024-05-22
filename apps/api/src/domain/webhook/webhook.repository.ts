@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/db/prisma.service';
-import { CreateCustomerDto } from './dto/create-customer.dto';
+import { CreateWebhookDto } from './dto/create-webhook.dto';
+import { UpdateWebhookDto } from './dto/update-webhook.dto';
 
 @Injectable()
 export class WebhookRepository {
@@ -14,8 +15,17 @@ export class WebhookRepository {
     });
   }
 
-  async create(payload: CreateCustomerDto) {
+  async create(payload: CreateWebhookDto) {
     return await this.prismaService.webhook.create({
+      data: payload,
+    });
+  }
+
+  async update(id: string, payload: UpdateWebhookDto) {
+    return await this.prismaService.webhook.update({
+      where: {
+        id: id,
+      },
       data: payload,
     });
   }

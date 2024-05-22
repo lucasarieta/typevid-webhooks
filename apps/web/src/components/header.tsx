@@ -17,7 +17,7 @@ export function Header({ onClick }: Props) {
         className='bg-white text-black px-3 py-1.5 rounded-lg full-center gap-2 hover:opacity-80 outline-none'
       >
         <PlusIcon />
-        Novo Webhook
+        New Webhook
       </button>
     </header>
   );

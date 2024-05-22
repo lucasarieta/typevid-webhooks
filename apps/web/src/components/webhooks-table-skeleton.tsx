@@ -8,11 +8,11 @@ export default function WebhooksTableSkeleton() {
         return (
           <TableRow key={i}>
             <TableCell className='font-medium'>
-              <Skeleton className='h-6 w-[140px]' />
+              <Skeleton className='h-4 w-[140px]' />
             </TableCell>
 
             <TableCell>
-              <Skeleton className='h-4 w-[200px]' />
+              <Skeleton className='h-4 w-[140px]' />
             </TableCell>
 
             <TableCell className='font-medium'>
@@ -21,6 +21,10 @@ export default function WebhooksTableSkeleton() {
 
             <TableCell>
               <Skeleton className='h-4 w-[140px]' />
+            </TableCell>
+
+            <TableCell>
+              <Skeleton className='h-4 w-[80px]' />
             </TableCell>
           </TableRow>
         );

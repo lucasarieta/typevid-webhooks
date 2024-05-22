@@ -1,6 +1,6 @@
 import { IsIn, IsNotEmpty } from 'class-validator';
 
-export class CreateCustomerDto {
+export class CreateWebhookDto {
   @IsNotEmpty()
   name: string;
 
