@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Webhook {
+  id              String    @id @default(cuid())
+  name            String
+  url             String
+  eventType       String
+  lastTriggeredAt DateTime?
+  createdAt       DateTime  @default(now())
+  isDeleted       Boolean   @default(false)
+
+  @@map("webhooks")
+}

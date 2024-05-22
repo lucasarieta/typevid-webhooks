@@ -1,56 +1,64 @@
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { getWebhooks } from './api/get-webhooks';
 import { Header } from './components/header';
 import { Layout } from './components/layout';
+import { NewWebhookDialog } from './components/new-webhook-dialog';
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from './components/table';
+} from './components/ui/table';
+import { WebhooksTableRow } from './components/webhooks-table-row';
+import WebhooksTableSkeleton from './components/webhooks-table-skeleton';
 
 export default function App() {
+  const [isCreatingWebhook, setIsCreatingWebhook] = useState(false);
+
+  const {
+    data: result,
+    isFetching,
+    isLoading,
+  } = useQuery({
+    queryKey: ['webhooks'],
+    queryFn: async () => getWebhooks(),
+  });
+
   return (
-    <Layout>
-      <Header />
+    <>
+      <Layout>
+        <Header onClick={() => setIsCreatingWebhook(true)} />
 
-      <div className='border border-zinc-500/50 select-none rounded-lg'>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className='w-[140px]'>Name</TableHead>
-              <TableHead className='w-[140px]'>Event Type</TableHead>
-              <TableHead className='w-[140px]'>Last Triggered At</TableHead>
-              <TableHead className='w-[140px]'>Created At</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className='max-w-[140px] truncate'>
-                <a href='https://webhook.site/1' target='_blank'>
-                  https://webhook.site/1
-                </a>
-              </TableCell>
+        <div className='border border-zinc-500/50 select-none rounded-lg'>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className='w-[140px]'>Name</TableHead>
+                <TableHead className='w-[140px]'>Event Type</TableHead>
+                <TableHead className='w-[140px]'>Last Triggered At</TableHead>
+                <TableHead className='w-[140px]'>Created At</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {isLoading && !result && <WebhooksTableSkeleton />}
 
-              <TableCell>ADD_SHIPPING</TableCell>
-              <TableCell>2021-09-01 10:00:00</TableCell>
-              <TableCell>2021-09-01 10:00:00</TableCell>
-            </TableRow>
+              {result &&
+                result.map((webhook) => {
+                  return (
+                    <WebhooksTableRow key={webhook.id} webhook={webhook} />
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </div>
+      </Layout>
 
-            <TableRow>
-              <TableCell className='max-w-[140px] truncate'>
-                <a href='https://webhook.site/1' target='_blank'>
-                  https://webhook.site/1
-                </a>
-              </TableCell>
-
-              <TableCell>order.created</TableCell>
-              <TableCell>2021-09-01 10:00:00</TableCell>
-              <TableCell>2021-09-01 10:00:00</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </div>
-    </Layout>
+      <NewWebhookDialog
+        open={isCreatingWebhook}
+        onOpenChange={setIsCreatingWebhook}
+      />
+    </>
   );
 }
