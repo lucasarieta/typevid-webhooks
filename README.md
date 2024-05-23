@@ -56,6 +56,7 @@ Back End
 ```bash
 $ cd apps/api
 $ npm install
+$ npx prisma generate
 $ npm run start:dev
 ```
 
