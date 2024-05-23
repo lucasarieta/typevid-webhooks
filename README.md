@@ -28,7 +28,7 @@ O Typevid é uma ferramenta que acelera o processo de criação de vídeos em at
 
 ## Por que essas tecnologias?
 
-- NestJS: Framework utilizado para desenvolvimento backend em NodeJS, possui arquitetura modular o que facilita a organização do código e a manutenção do projeto. Além disso, possui diversos facilitadores, como a inversão de dependencia, que nos permite separar a lógica de negócio da implementação concreta.
+- NestJS: Framework utilizado para desenvolvimento backend em NodeJS, possui arquitetura modular o que facilita a organização do código e a manutenção do projeto. Além disso, possui diversos facilitadores, como a inversão de dependência, que nos permite separar a lógica de negócio da implementação concreta.
 
 - ReactJS: Framework utilizado para desenvolvimento frontend, possui uma curva de aprendizado baixa e é muito utilizado no mercado. Além disso, possui uma comunidade muito ativa e diversos pacotes que facilitam o desenvolvimento.
 
