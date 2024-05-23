@@ -11,6 +11,10 @@ export class WebhookService {
     return await this.webhookRepository.findMany();
   }
 
+  async findByEventType(eventType: string) {
+    return await this.webhookRepository.findByEventType(eventType);
+  }
+
   async create(payload: CreateWebhookDto) {
     return await this.webhookRepository.create(payload);
   }

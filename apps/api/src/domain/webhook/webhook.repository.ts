@@ -15,6 +15,15 @@ export class WebhookRepository {
     });
   }
 
+  async findByEventType(eventType: string) {
+    return await this.prismaService.webhook.findMany({
+      where: {
+        eventType: eventType,
+        isDeleted: false,
+      },
+    });
+  }
+
   async create(payload: CreateWebhookDto) {
     return await this.prismaService.webhook.create({
       data: payload,
