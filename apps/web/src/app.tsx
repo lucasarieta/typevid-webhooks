@@ -8,6 +8,7 @@ import { NewWebhookDialog } from './components/new-webhook-dialog';
 import {
   Table,
   TableBody,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
@@ -44,7 +45,6 @@ export default function App() {
               <TableRow>
                 <TableHead className='w-[140px]'>Name</TableHead>
                 <TableHead className='w-[140px]'>Event Type</TableHead>
-                <TableHead className='w-[140px]'>Last Triggered At</TableHead>
                 <TableHead className='w-[140px]'>Created At</TableHead>
                 <TableHead className='w-[140px]'>Actions</TableHead>
               </TableRow>
@@ -62,6 +62,17 @@ export default function App() {
                     />
                   );
                 })}
+
+              {result && result.length === 0 && (
+                <TableRow>
+                  <TableCell
+                    colSpan={7}
+                    className='py-10 text-center opacity-80'
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </div>
