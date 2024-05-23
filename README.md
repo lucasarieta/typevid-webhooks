@@ -45,11 +45,13 @@ Requisitos:
 - NodeJS
 - Docker
 
-Docker
+Para rodar o projeto usando um container Docker, basta configurar as variaveis de ambientes de cada projeto e rodar o comando:
 
 ```
 $ docker compose up -d
 ```
+
+Caso queira rodar localmente, siga os passos abaixo:
 
 Back End
 
