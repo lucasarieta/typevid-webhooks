@@ -2,9 +2,10 @@
 
 ![Arquitetura](./.github/typevid.png)
 
-Este projeto é parte do desafio técnico para a vaga de Desenvolvedor Pleno na Typevid.
+Este projeto é parte do desafio técnico para a vaga de Desenvolvedor Pleno no Typevid.
 
-O que é a TypeVid? A TypeVid é uma ferramenta que acelera o processo de criação de vídeos em até 10 vezes, quando você não tem suas próprias mídias.
+O que é o TypeVid?
+O Typevid é uma ferramenta que acelera o processo de criação de vídeos em até 10 vezes, quando você não tem suas próprias mídias.
 
 [https://typevid.io/](https://typevid.io/)
 
@@ -68,7 +69,7 @@ $ npm run dev
 
 ## Propostas de Melhorias
 
-- Adicionar lógica de autênticação
+- Adicionar lógica de autênticação e usuários na aplicação;
 
 ## Rotas
 
