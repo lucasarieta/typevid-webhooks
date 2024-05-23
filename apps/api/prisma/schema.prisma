@@ -8,13 +8,12 @@ datasource db {
 }
 
 model Webhook {
-  id              String    @id @default(cuid())
-  name            String
-  url             String
-  eventType       String
-  lastTriggeredAt DateTime?
-  createdAt       DateTime  @default(now())
-  isDeleted       Boolean   @default(false)
+  id        String   @id @default(cuid())
+  name      String
+  url       String
+  eventType String
+  createdAt DateTime @default(now())
+  isDeleted Boolean  @default(false)
 
   @@map("webhooks")
 }

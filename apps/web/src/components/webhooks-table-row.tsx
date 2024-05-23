@@ -39,7 +39,7 @@ export function WebhooksTableRow({ webhook, onEdit }: Props) {
     <TableRow>
       <TableCell className='max-w-[140px] truncate'>{webhook.name}</TableCell>
       <TableCell>{webhook.eventType}</TableCell>
-      <TableCell>{webhook.lastTriggeredAt ?? 'Never'}</TableCell>
+      <TableCell>{'Never'}</TableCell>
       <TableCell>{formatDate(webhook.createdAt)}</TableCell>
       <TableCell className='flex items-center gap-2'>
         <button

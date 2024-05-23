@@ -3,7 +3,6 @@ export interface Webhook {
   name: string;
   url: string;
   eventType: string;
-  lastTriggeredAt?: string;
   createdAt: string;
 }
 
